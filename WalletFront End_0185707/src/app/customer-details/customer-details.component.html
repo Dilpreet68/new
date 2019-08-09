@@ -1,0 +1,28 @@
+
+
+<div *ngIf="customer">
+  <div>
+    <label>Account Id: </label> {{customer.accountId}}
+  </div>
+  <div>
+    <label>Mobile No: </label> {{customer.mobileno}}
+  </div>
+  <div>
+    <label>Account Holder Name: </label> {{customer.holdername}}
+  </div>
+  <div>
+    <label>Account Balance: </label> {{customer.balance}}
+  </div>
+
+  <!-- <span class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(false)'>Inactive</span>
+
+  <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span>
+
+  <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span> -->
+
+  <hr/>
+</div>
+
+  
+
+ 

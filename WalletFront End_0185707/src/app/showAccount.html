@@ -1,0 +1,70 @@
+<style>
+    th{
+         text-align: center;
+         font-style: italic;
+         color: blueviolet;
+    }
+    td{
+        text-align: center;
+         font-style: italic;
+    }
+    </style>
+<div class="container" style="padding-right: 50px">
+        <div style="padding-left: 70px; padding-right:70px" class="border border-success">
+<h2>Show Employee...</h2>
+
+<table border="2" style="background-color:lightgray">
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee department</th>
+        <th colspan="2">Action</th>
+
+    </tr>
+    <tr *ngFor="let emp of empall;let i=index">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName |checkmyown |uppercase}}</td>
+        <td>{{emp.empSalary |currency:'INR':true}}</td>
+        <td>{{emp.empDepartment |uppercase}}</td>
+        <td><input type="button" value="Delete" (click)="deleteEmployee(i)" class="btn btn-success"/></td>
+            <td><input type="button" value="Update" (click)="updateEmployee(i)" class="btn btn-danger"/></td>
+    </tr>
+    
+</table></div></div><br><br>
+<!--You Have searched:-{{data}}-->
+
+<div class="container">
+    <!-- Content here -->
+ 
+<div style="padding-left: 70px; padding-right:70px" class="border border-success">
+<font align="center"> <h2>Update Employee...</h2></font>
+
+<form #upForm="ngForm" (ngSubmit)="updateEmp()">
+
+
+        <div class="form-group">
+                <label for="name">Enter Employee Id:-</label>
+                <input type="text" class="form-control"  name="EId" id="id"  [(ngModel)]="empid" #id1control="ngModel"  aria-describedby="emailHelp" placeholder="Enter Employee Id" required>
+                <small id="idHelp" class="form-text text-muted" *ngIf="id1control.touched && id1control.invalid">*Employee Id Required.</small>
+              </div>
+              <div class="form-group">
+                    <label for="name">Enter Employee Name:-</label>
+                    <input type="text" class="form-control"  placeholder="Employee Name" name="EName" id="name" [(ngModel)]="empname" #name1control="ngModel" required>
+                    <small id="namelHelp" class="form-text text-muted" *ngIf="name1control.touched && name1control.invalid">*Employee Name Required.</small>
+                  </div>
+                  <div class="form-group">
+                        <label for="name">Enter Employee Salary:-</label>
+                        <input type="text" class="form-control"  placeholder="Employee Salary" name="ESalary" id="salary" [(ngModel)]="empsalary" #salary1control="ngModel" required>
+                        <small id="namelHelp" class="form-text text-muted" *ngIf="salary1control.touched && salary1control.invalid">*Employee Salary Required.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="name">Enter Employee Department:-</label>
+                        <input type="text" class="form-control"  placeholder="Employee Department" name="EDepartment" id="department" [(ngModel)]="empdepartment" #departmentcontrol="ngModel" required>
+                        <small id="namelHelp" class="form-text text-muted" *ngIf="departmentcontrol.touched && departmentcontrol.invalid">*Employee Department Required.</small>
+                      </div>
+                      <div style="padding-left: 400px; padding-right:70px">
+                      <button  type="submit" value="Update Data" [disabled]="upForm.invalid" class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button  type="reset" value="Clear"  class="btn btn-danger">Clear</button></div>
+
+</form></div></div>

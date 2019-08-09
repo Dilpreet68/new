@@ -1,0 +1,48 @@
+<div style="padding-left: 10px; padding-right: 10px;">
+    <div style="background-color:honeydew">
+<br>
+<h3 style="color: blue"><b>Search Account -->></b></h3>
+<br>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="lastname" style="color: blue"><h4>Enter Mobile number to Search</h4></label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="mobileno" name="mobile" placeholder="Enter Mobile number">
+    </div>
+
+   
+    &nbsp;
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+    &nbsp;
+    <div class="btn-group">
+        <button type="reset" class="btn btn-success">Reset</button>
+      </div>
+
+    
+  </form>
+</div>
+<div *ngFor="let customer of customers;let i=index">
+  <br>
+  <br>
+<table border="2" style="background-color:honeydew" class=" table table-stripped"><tr><th>Account No</th>
+            <th>Mobile No</th>
+          <th>Account Holder</th>
+        <th>Account Balance</th>
+      <th >Action</th></tr>
+      <tr><td><input type="text" [(ngModel)]="customer.accountId"/></td>
+        <td><input type="text" [(ngModel)]="customer.mobileno"/></td>
+        <td><input type="text" [(ngModel)]="customer.holdername"/></td>
+        <td><input type="text" [(ngModel)]="customer.balance"/></td>
+     
+<td><button type="button" class="button btn-danger" (click)='deleteCustomer(i)'>Delete</button></td>
+</tr></table>
+</div>
+
+
+</div>
+</div>
+
+
+    

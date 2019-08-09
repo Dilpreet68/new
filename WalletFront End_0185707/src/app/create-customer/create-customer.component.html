@@ -1,0 +1,49 @@
+
+
+<div style="padding-left: 10px; padding-right: 10px;">
+    <div style="background-color:honeydew">
+<div class="container">
+<h3 style="color: blue" ><b>Add Account -->></b></h3>
+<div style="padding-left: 300px">
+
+<div style="width: 300px;">
+  <form  #accForm="ngForm" >
+    <div class="form-group">
+      <label for="name" style="color:blue"><h4>Account Id:-</h4></label>
+      <input type="text" class="form-control" id="mobile" required [(ngModel)]="customer.accountId" name="id" #idcontrol="ngModel">
+      <small id="idHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid" ><font style="color: red">*Account Id Required.</font></small>
+    </div>
+    <div class="form-group">
+      <label for="name" style="color:blue"><h4>Mobile No:-</h4></label>
+      <input type="text" class="form-control" id="mobile" required [(ngModel)]="customer.mobileno" name="mobile" #nocontrol="ngModel">
+      <small id="noHelp" class="form-text text-muted" *ngIf="nocontrol.touched && nocontrol.invalid"><font style="color: red">*Mobile No Required.</font></small>
+    </div>
+    <div class="form-group">
+      <label for="name" style="color:blue"><h4>Account Holder Name:-</h4></label>
+      <input type="text" class="form-control" id="mobile" required [(ngModel)]="customer.holdername" name="name" #namecontrol="ngModel">
+      <small id="namelHelp" class="form-text text-muted" *ngIf="namecontrol.touched && namecontrol.invalid"><font style="color: red">*Account Holder Name Required.</font></small>
+    </div>
+
+    <div class="form-group">
+      <label for="age" style="color:blue"><h4>Account Balance:-</h4></label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="customer.balance" name="balance" #balancecontrol="ngModel">
+      <small id="namelHelp" class="form-text text-muted" *ngIf="balancecontrol.touched && balancecontrol.invalid"><font style="color: red">*Account Balance Required.</font></small>
+    </div>
+    
+
+    <button type="submit" [disabled]="accForm.invalid" class="btn btn-success" (click)="onSubmit()">Submit</button>&nbsp;&nbsp;
+    <button type="reset"  class="btn btn-success">Reset</button>
+  </form>
+</div>
+
+<div *ngIf="hidden">
+  <br>
+  <br>
+  <br>
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newCustomer()">OK</button>
+</div>
+</div>
+</div>
+</div>
+</div>

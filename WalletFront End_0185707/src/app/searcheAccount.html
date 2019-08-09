@@ -1,0 +1,29 @@
+<div class="container">
+        <div style="padding-left: 70px; padding-right:70px" class="border border-success">
+<h2>Search Employee By Id........</h2>
+<form  #searchForm="ngForm" (ngSubmit)="searchEmp()">
+<div class="form-group">
+    <label for="name">Enter Employee Id:-</label>
+    <input type="text" class="form-control"  name="EId" id="id" [(ngModel)]="empId" #idcontrol="ngModel"  aria-describedby="idHelp" placeholder="Enter Employee Id" required>
+    <small id="idHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Employee Id Required.</small>
+  </div>
+  <button  type="submit" value="Add Data" [disabled]="searchForm.invalid" class="btn btn-success">Submit</button>
+</form>
+<br><br>
+<div *ngIf="status">
+<table border="2">
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee department</th>
+
+    </tr>
+    <tr *ngFor="let emp of result">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.empSalary}}</td>
+        <td>{{emp.empDepartment}}</td>
+    </tr>
+    
+</table></div></div>

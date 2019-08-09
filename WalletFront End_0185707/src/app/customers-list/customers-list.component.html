@@ -1,0 +1,18 @@
+<span class="border border-primary">
+<div style="padding-left: 10px; padding-right: 10px;">
+    <div style="background-color:honeydew">
+<br>
+<h3 style="color:blue"><b>All Customers -->></b></h3>
+<br>
+<div style="padding-left: 300px">
+<div *ngFor="let customer of customers | async" style="width: 300px;">
+  <customer-details [customer]='customer'></customer-details>
+</div>
+
+<!-- <div>
+  <button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
+</div> -->
+</div>
+</div>
+</div>
+</span>

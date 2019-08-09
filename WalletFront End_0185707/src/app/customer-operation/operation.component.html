@@ -1,0 +1,97 @@
+<div style="padding-left: 10px; padding-right: 10px;">
+    <div style="background-color:honeydew">
+<br>
+<br>
+<div style="color: blue"><h3><b>Operations You Can Perform:</b>
+&nbsp;<select [(ngModel)]="ActionSelection">
+  <option value="deposite">Deposit Money
+  <option value="withdraw">Withdraw Money
+    <option value="transfer">Transfer Money
+
+</select>
+</h3>
+</div>
+  
+  
+<div [ngSwitch]="ActionSelection"> 
+        <div *ngSwitchCase="'deposite'">
+          <br>
+          <br>
+                <form (ngSubmit)="onDeposite()">
+                        <div class="form-group">
+                            
+                          <label for="name" style="color:blue"><h4>Enter Mobile number in which you want to deposit:-</h4></label>
+                          <input type="text" class="form-control" id="mobile" required [(ngModel)]="mobileno" name="mobileno">
+                        </div>
+                        <div class="form-group">
+                          <label for="name" style="color:blue"><h4>Enter Amount to deposite:-</h4></label>
+                          <input type="text" class="form-control" id="mobile" required [(ngModel)]="amount" name="amount">
+                        </div>
+                        <button type="submit" class="btn btn-success">Deposit</button>&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-success" (click)="new()">Reset</button>
+                       
+                      </form>
+                     
+  
+</div>
+  
+  
+        
+      <div *ngSwitchCase="'withdraw'">
+        <br>
+        <br>
+ 
+            <form (ngSubmit)="onWithdraw()">
+                    <div class="form-group">
+                      <label for="name" style="color:blue"><h4>Enter Mobile number from which you want to withdraw:-</h4></label>
+                      <input type="text" class="form-control" id="mobile" required [(ngModel)]="mobileno" name="mobileno">
+                    </div>
+                    <div class="form-group">
+                      <label for="name" style="color:blue"><h4>Enter Amount to withdraw:-</h4></label>
+                      <input type="text" class="form-control" id="mobile" required [(ngModel)]="amount" name="amount">
+                    </div>
+                    <button type="submit" class="btn btn-success">Withdraw</button>&nbsp;&nbsp;
+                    <button type="reset" class="btn btn-success" (click)="new()">Reset</button>
+                   
+                  </form>
+                  
+  </div>
+  <div *ngSwitchCase="'transfer'">
+ 
+    <br>
+    <br>
+        <form (ngSubmit)="onTransfer()">
+                <div class="form-group">
+                  
+                  <label for="name" style="color:blue"><h4>Enter Mobile number from which you want to Transfer:-</h4></label>
+                  <input type="text" class="form-control" id="mobile" required [(ngModel)]="fromMobileno" name="mobileno">
+                </div>
+                <div class="form-group">
+                        <label for="name" style="color:blue"><h4>Enter Mobile number in which you want to Transfer:-</h4></label>
+                        <input type="text" class="form-control" id="mobile" required [(ngModel)]="toMobileno" name="mobileno">
+                      </div>
+                <div class="form-group">
+                  <label for="name" style="color:blue"><h4>Enter Amount to transfer:-</h4></label>
+                  <input type="text" class="form-control" id="mobile" required [(ngModel)]="amount" name="amount">
+                </div>
+                <button type="submit" class="btn btn-success">Transfer</button>&nbsp;&nbsp;
+                <button type="reset" class="btn btn-success" (click)="new()">Reset</button>
+                
+              </form>
+              
+        </div>
+  
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p *ngSwitchDefault>Please Select One Of The Operations</p>
+
+<div *ngIf="flag"><h3><b><input type="text" [(ngModel)]="result" size="22px" readonly/></b></h3>
+  <button class="btn btn-success" (click)="newCustomer()">OK</button></div>
+  </div>
+  
+  </div> 
+  </div> 
+  
+  
+     
+      
+      
